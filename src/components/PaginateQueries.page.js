@@ -10,7 +10,7 @@ const fetchUserName = (pageNumber) => {
 
 export const PaginateQueries = () => {
   const [pageNumber, setPageNumber] = useState(1);
-  const { data, isError, error, isLoading, isFetching } = useQuery(
+  const { data, isError, error, isLoading } = useQuery(
     ["usernames", pageNumber],
     () => fetchUserName(pageNumber),
     {

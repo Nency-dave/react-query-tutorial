@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSuperHeroesData } from "../hooks/useSuperHeroesData";
 
 export const HomePage = () => {
@@ -14,15 +13,14 @@ export const HomePage = () => {
     onError
   );
   if (isFetching || isLoading) return <h1>Loading....</h1>;
-  // console.log(data, "home data");
   return (
     <>
       <div>Home Page</div>
       <button onClick={refetch}>Fetch heroes</button>
-      {data?.map((hero) => {
+      {data && data.data.map((hero, index) => {
         return (
-          <ul key={hero}>
-            <li>{hero}</li>
+          <ul key={index}>
+            <li>{hero.name}</li>
           </ul>
         );
       })}

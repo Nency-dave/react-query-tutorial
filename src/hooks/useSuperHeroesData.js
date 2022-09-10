@@ -1,6 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 
 const fetchSuperHeroes = () => {
   return axios.get("https://jsonplaceholder.typicode.com/users");
@@ -13,7 +12,6 @@ const addSuperHero = (hero) => {
 };
 
 export const useSuperHeroesData = (onSuccess, onError) => {
-  const { pathname } = useLocation();
   return useQuery("super-heroes", fetchSuperHeroes, {
     //cacheTime: 5000, //query cache
     //staleTime: 0, //stale time
